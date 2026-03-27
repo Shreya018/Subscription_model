@@ -7,12 +7,19 @@ resources:
           notebook_task:
             notebook_path: /Workspace/project_subscription/Subscription_model/03_gold/01_notebook_gold/nb_gold
             source: WORKSPACE
+        - task_key: gold_layer_data_cube
+          depends_on:
+            - task_key: gold_layer_tables
+          notebook_task:
+            notebook_path: /Workspace/project_subscription/Subscription_model/03_gold/03_notebook_gold/nb_data_cube
+            source: WORKSPACE           
         - task_key: gold_layer_kpi
           depends_on:
             - task_key: gold_layer_tables
           notebook_task:
             notebook_path: /Workspace/project_subscription/Subscription_model/03_gold/02_notebook_gold/gold_kpi_calculations
             source: WORKSPACE
+
       queue:
         enabled: true
       performance_target: PERFORMANCE_OPTIMIZED
