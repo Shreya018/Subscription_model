@@ -1,0 +1,12 @@
+resources:
+  jobs:
+    bronze_layer:
+      name: bronze_layer
+      tasks:
+        - task_key: subscriptions_bronze_layer
+          notebook_task:
+            notebook_path: /Workspace/project_subscription/Subscription_model/01_bronze/01_notebook_bronze/nb_bronze
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

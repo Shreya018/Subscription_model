@@ -1,0 +1,12 @@
+resources:
+  jobs:
+    silver_layer:
+      name: silver_layer
+      tasks:
+        - task_key: subscriptions_silver_layer
+          notebook_task:
+            notebook_path: /Workspace/project_subscription/Subscription_model/02_silver/01_notebook_silver/nb_silver
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

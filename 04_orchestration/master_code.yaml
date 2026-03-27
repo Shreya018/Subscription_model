@@ -1,0 +1,22 @@
+resources:
+  jobs:
+    master_orchestrator:
+      name: master_orchestrator
+      tasks:
+        - task_key: subscription_bronze_ingestion
+          run_job_task:
+            job_id: 13452978402123
+        - task_key: subscription_silver_cleaning
+          depends_on:
+            - task_key: subscription_bronze_ingestion
+          run_job_task:
+            job_id: 1121540920263471
+        - task_key: subscription_gold_kpis
+          depends_on:
+            - task_key: subscription_silver_cleaning
+          run_job_task:
+            job_id: 767701632213164
+      tags:
+        type: master
+      queue:
+        enabled: true
